@@ -17,7 +17,7 @@
 # include <limits.h>
 # include "Libft/libft.h"
 
-int		push_swap(char **arg);
+int		push_swap(char **arg); //ainda nao fiz
 
 long	ft_atol(const char *str);
 void	ft_error(void);
