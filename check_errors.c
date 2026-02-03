@@ -14,8 +14,8 @@
 
 void	ft_error(void)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit (1);
+	ft_putstr_fd("Error\n", 2); //n sei pq nao write, e pq no fd 2
+	exit (1); //???
 }
 
 long	ft_atol(const char *str)
@@ -48,13 +48,13 @@ int	syntax_check(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-') //avanca o sinal
 		i++;
-	if (!str[i])
+	if (!str[i]) //se nao tem mais nada alem do sinal
 		return (1); //erro
 	while (str[i])
 	{
-		if (!(ft_isdigit(str[i])))
+		if (!(ft_isdigit(str[i]))) //se o caractere for diferente de numero
 			return (1); //erro
 		i++;
 	}

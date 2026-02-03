@@ -21,20 +21,20 @@ LIBFT_PATH	= ./Libft/
 
 LIBFT		= $(LIBFT_PATH)/libft.a
 
-SRC			= push_swap.c check_errors.c
+SRC			= push_swap.c check_errors.c init_stack.c swap.c
 
 OBJ			= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(CCFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
