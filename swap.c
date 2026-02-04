@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	swap(t_stack **head)
+static void	swap(t_stack **head)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -21,6 +21,7 @@ void	swap(t_stack **head)
 		return ;
 	first = *head;
 	second = first->next;
+	first->next = second->next;
 	if (second->next == NULL)
 		second->next->prev = first;
 	second->next = first;

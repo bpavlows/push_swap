@@ -21,7 +21,13 @@ LIBFT_PATH	= ./Libft/
 
 LIBFT		= $(LIBFT_PATH)/libft.a
 
-SRC			= push_swap.c check_errors.c init_stack.c swap.c
+SRC			= push_swap.c \
+			  check_errors.c \
+			  init_stack.c \
+			  swap.c \
+			  rotate.c \
+			  reverse_rotate.c \
+			  push.c
 
 OBJ			= $(SRC:.c=.o)
 

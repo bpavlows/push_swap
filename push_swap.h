@@ -30,6 +30,7 @@ typedef struct	s_stack
 }	t_stack;
 
 //int		push_swap(char **arg); //ainda nao fiz
+void	imprimir_lista(t_stack *a);
 
 long	ft_atol(const char *str);
 int		syntax_check(char *arg);
@@ -38,10 +39,21 @@ void	init_stack_a(t_stack **a, char **arg);
 void	ft_error(void);
 void	process_split_args(t_stack **stack_a, char **arg);
 void	add_node_back(t_stack **stack, t_stack *new_node);
-void	swap(t_stack **head);
+//void	swap(t_stack **head);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
+//void	rotate(t_stack **stack);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+//void	reverse_rotate(t_stack **stack);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+//void	push(t_stack **dest, t_stack **src);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **b, t_stack **a);
 t_stack	*get_new_node(int content);
 t_stack	*find_last_node(t_stack *head);
 

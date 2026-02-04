@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by bpavlows and yande-ol*
+*This project has been created as part of the 42 curriculum by bpavlows*
 
 # PUSH_SWAP
 ## Project push_swap / Milestone 2 / 42 Porto

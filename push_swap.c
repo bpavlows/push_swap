@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
+void	imprimir_lista(t_stack *a)
+{
+	t_stack	*temp;
+
+	temp = a;
+	while (temp != NULL)
+	{
+		ft_printf("%d\n", temp->value);
+		temp = temp->next;
+	}
+}
+
 void	process_split_args(t_stack **stack_a, char **arg)
 {
 	long	nbr;
@@ -44,9 +56,11 @@ int	main(int ac, char **av)
 	int		i;
 	char	**args_split;
 	t_stack	*stack_a;
+	t_stack *stack_b;
 
 	i = 1;
 	stack_a = NULL;
+	stack_b = NULL;
 	if (ac == 1)
 		ft_printf("Use ./push_swap <value1> <value2> <value3> ... <valueN>");
 		// testar 09 e 9 & 9 e -9
@@ -64,5 +78,8 @@ int	main(int ac, char **av)
 		free(args_split);
 		i++;
 	}
+	imprimir_lista(stack_a);
+	ra(&stack_a);
+	imprimir_lista(stack_a);
 	return (0);
 }
