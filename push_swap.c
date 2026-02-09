@@ -43,23 +43,35 @@ void	free_stack(t_stack **stack)
 
 void	process_split_args(t_stack **stack_a, char **arg)
 {
+	char	**args_split;
 	long	nbr;
 	int		i;
-	t_stack	*new_node;
+	int		j;
+	//t_stack	*new_node;
 
 	nbr = 0;
 	i = 0;
 	while (arg[i])
 	{
-		if (syntax_check(arg[i])) //cada arg depois do split
+		args_split = ft_split(arg[i], ' ');
+		if (!args_split)
 			ft_error(stack_a);
-		nbr = ft_atol(arg[i]);
-		if (nbr < INT_MIN || nbr > INT_MAX) //pre-definido pelo sistema
-			ft_error(stack_a);
-		if (check_duplicates(*stack_a, (int)nbr)) // vai checar se o numero atual ja esta na stack
-			ft_error(stack_a);
-		new_node = get_new_node((int)nbr);
-		add_node_back(stack_a, new_node);
+		j = 0;
+		while (args_split[j])
+		{
+			if (syntax_check(args_split[j])) //cada arg depois do split
+				ft_error(stack_a);
+			nbr = ft_atol(args_split[j]);
+			if (nbr < INT_MIN || nbr > INT_MAX) //pre-definido pelo sistema
+				ft_error(stack_a);
+			if (check_duplicates(*stack_a, (int)nbr)) // vai checar se o numero atual ja esta na stack
+				ft_error(stack_a);
+		//	new_node = get_new_node((int)nbr);
+			add_node_back(stack_a, get_new_node((int)nbr));
+			free(args_split[j]);
+			j++;
+		}
+		free(args_split);
 		i++;
 	}
 	// se estiver ok, adc na stack a
@@ -75,7 +87,7 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
 		return (1);
 		// testar 09 e 9 & 9 e -9
 	process_split_args(&stack_a, av + 1);
