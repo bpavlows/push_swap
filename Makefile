@@ -17,7 +17,7 @@ CC			= cc
 
 CCFLAGS		= -Wall -Wextra -Werror
 
-LIBFT_PATH	= ./Libft/
+LIBFT_PATH	= ./libft/
 
 LIBFT		= $(LIBFT_PATH)/libft.a
 
