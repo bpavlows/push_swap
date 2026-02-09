@@ -22,7 +22,7 @@ typedef struct	s_stack
 	int				value;
 	int				index;
 	int				push_cost;
-	int				adobe_median;
+	int				above_median;
 	int				cheapest;
 	struct s_stack	*target_node;
 	struct s_stack	*next;
@@ -30,13 +30,15 @@ typedef struct	s_stack
 }	t_stack;
 
 //int		push_swap(char **arg); //ainda nao fiz
-void	imprimir_lista(t_stack *a);
+//void	imprimir_lista(t_stack *a);
 
 long	ft_atol(const char *str);
 int		syntax_check(char *arg);
 int		check_duplicates(t_stack *a, int n);
+int		stack_len(t_stack *stack);
+int		stack_sorted(t_stack *stack);
 void	init_stack_a(t_stack **a, char **arg);
-void	ft_error(void);
+void	ft_error(t_stack **stack);
 void	process_split_args(t_stack **stack_a, char **arg);
 void	add_node_back(t_stack **stack, t_stack *new_node);
 //void	swap(t_stack **head);
@@ -54,6 +56,20 @@ void	rrr(t_stack **a, t_stack **b);
 //void	push(t_stack **dest, t_stack **src);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
+void	sort_three(t_stack **a);
+void	current_index(t_stack *stack);
+void	set_target_a(t_stack *a, t_stack *b);
+void	cost_analysis_a(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *stack);
+void	init_nodes_a(t_stack *a, t_stack *b);
+void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_node);
+void	move_a_to_b(t_stack **a, t_stack **b);
+void	init_nodes_b(t_stack *a, t_stack *b);
+void	sort_stacks(t_stack **a, t_stack **b);
+void	free_stack(t_stack **stack);
+t_stack	*find_max(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
+t_stack	*find_higest(t_stack *stack);
 t_stack	*get_new_node(int content);
 t_stack	*find_last_node(t_stack *head);
 

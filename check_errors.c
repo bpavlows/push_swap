@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_erros.c                                      :+:      :+:    :+:   */
+/*   check_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bpavlows <bpavlows@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,8 +12,9 @@
 
 #include "push_swap.h"
 
-void	ft_error(void)
+void	ft_error(t_stack **stack)
 {
+	free_stack(stack);
 	ft_putstr_fd("Error\n", 2); //n sei pq nao write, e pq no fd 2
 	exit (1); //???
 }

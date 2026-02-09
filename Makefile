@@ -23,11 +23,16 @@ LIBFT		= $(LIBFT_PATH)/libft.a
 
 SRC			= push_swap.c \
 			  check_errors.c \
+			  utils.c \
 			  init_stack.c \
+			  init_a_to_b.c \
+			  init_b.c \
+			  sort_stacks.c \
 			  swap.c \
 			  rotate.c \
 			  reverse_rotate.c \
-			  push.c
+			  push.c \
+			  move.c
 
 OBJ			= $(SRC:.c=.o)
 
