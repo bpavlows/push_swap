@@ -3,9 +3,9 @@
 # PUSH_SWAP
 ## Project push_swap / Milestone 2 / 42 Porto
 
-[Screencast with 500 numbers](https://github.com/user-attachments/assets/62324b00-75e6-4a4f-bd78-95484ada05cf)
+![Demo with 500 numbers](https://github.com/user-attachments/assets/56e1287c-9fad-41c7-89de-8ba7e6f1414e)
 
-[Screencast with 100 numbers](https://github.com/user-attachments/assets/76854ca4-f6a3-4b4c-90fd-1423c6704412)
+![Demo with 100 numbers](https://github.com/user-attachments/assets/06a12503-7ec0-4f2c-aae4-723df53ca74a)
 
 ### Description
 The `push_swap` project is a very simple and highly effective algorithm project: data must be sorted.
