@@ -61,5 +61,4 @@ int		ft_putnbr_uns(unsigned int n);
 int		ft_putstr_pf(char *s);
 int		ft_putnbr_pf(int n);
 
-
 #endif

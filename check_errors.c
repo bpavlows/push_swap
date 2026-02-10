@@ -15,8 +15,8 @@
 void	ft_error(t_stack **stack)
 {
 	free_stack(stack);
-	ft_putstr_fd("Error\n", 2); //n sei pq nao write, e pq no fd 2
-	exit (1); //???
+	ft_putstr_fd("Error\n", 2);
+	exit (1);
 }
 
 long	ft_atol(const char *str)
@@ -49,15 +49,15 @@ int	syntax_check(char *str)
 	int	i;
 
 	i = 0;
-	if (str[i] == '+' || str[i] == '-') //avanca o sinal
+	if (str[i] == '+' || str[i] == '-')
 		i++;
-	if (!str[i]) //se nao tem mais nada alem do sinal
-		return (1); //erro
+	if (!str[i])
+		return (1);
 	while (str[i])
 	{
-		if (!(ft_isdigit(str[i]))) //se o caractere for diferente de numero
-			return (1); //erro
+		if (!(ft_isdigit(str[i])))
+			return (1);
 		i++;
 	}
-	return (0); //ok
+	return (0);
 }

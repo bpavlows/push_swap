@@ -17,7 +17,7 @@ static void	swap(t_stack **head)
 	t_stack	*first;
 	t_stack	*second;
 
-	if(!*head || !(*head)->next)
+	if (!*head || !(*head)->next)
 		return ;
 	first = *head;
 	second = first->next;

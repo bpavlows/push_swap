@@ -12,6 +12,47 @@
 
 #include "push_swap.h"
 
+void	free_matrix(char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (!argv)
+		return ;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
+}
+
+static void	fill_stack(t_stack **stack, char **split)
+{
+	int		i;
+	long	nbr;
+
+	i = 0;
+	while (split[i])
+	{
+		if (syntax_check(split[i]))
+		{
+			free_matrix(split);
+			ft_error(stack);
+		}
+		nbr = ft_atol(split[i]);
+		if ((nbr < INT_MIN || nbr > INT_MAX)
+			|| (check_duplicates(*stack, (int)nbr)))
+		{
+			free_matrix(split);
+			ft_error(stack);
+		}
+		add_node_back(stack, get_new_node((int)nbr));
+		i++;
+	}
+	free_matrix(split);
+}
+
 void	free_stack(t_stack **stack)
 {
 	t_stack	*temp;
@@ -32,32 +73,15 @@ void	free_stack(t_stack **stack)
 void	process_split_args(t_stack **stack_a, char **arg)
 {
 	char	**args_split;
-	long	nbr;
 	int		i;
-	int		j;
 
-	nbr = 0;
 	i = 0;
 	while (arg[i])
 	{
 		args_split = ft_split(arg[i], ' ');
 		if (!args_split)
 			ft_error(stack_a);
-		j = 0;
-		while (args_split[j])
-		{
-			if (syntax_check(args_split[j])) //cada arg depois do split
-				ft_error(stack_a);
-			nbr = ft_atol(args_split[j]);
-			if (nbr < INT_MIN || nbr > INT_MAX) //pre-definido pelo sistema
-				ft_error(stack_a);
-			if (check_duplicates(*stack_a, (int)nbr)) // vai checar se o numero atual ja esta na stack
-				ft_error(stack_a);
-			add_node_back(stack_a, get_new_node((int)nbr));
-			free(args_split[j]);
-			j++;
-		}
-		free(args_split);
+		fill_stack(stack_a, args_split);
 		i++;
 	}
 }
@@ -65,13 +89,12 @@ void	process_split_args(t_stack **stack_a, char **arg)
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
-	t_stack *stack_b;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
 		return (1);
-		// testar 09 e 9 & 9 e -9
 	process_split_args(&stack_a, av + 1);
 	if (!stack_sorted(stack_a))
 	{

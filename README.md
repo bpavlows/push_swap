@@ -65,13 +65,55 @@ Run the program passing a list of integers as arguments
 ```bash
 ./push_swap <value1> <value2> <value3> ... <valueN>
 ```
+If you need 100 random values:
+```bash
+ARG=$(shuf -i 1-100 | tr '\n' ' '); ./push_swap $ARG
+```
+or 500 values:
+```bash
+ARG=$(shuf -i 1-500 | tr '\n' ' '); ./push_swap $ARG
+```
+
+
 Output
 * The program will output the list of operations needed to sort the list.
 
 Erros: The program handles errors such as:
 * Non-numeric arguments.
+```bash
+./push_swap 5 4 3 * 2 1
+```
+or:
+```bash
+./push_swap 5 4 3 i 2 1
+```
 * Duplicate numbers.
+```bash
+./push_swap 5 4 3 1 2 1
+```
 * Numbers greater than INT_MAX or smaller than INT_MIN.
+```bash
+./push_swap 5 4 2147483648
+```
+or:
+```bash
+./push_swap 5 4 -2147483649
+```
+
+* If you need check using the checker_linux, use:
+```bash
+ARG=$(5, 3, 4, 1, 2); ./push_swap $ARG | checker_linux $ARG
+```
+
+* If you need to use the Valgrind:
+```bash
+valgrind ./push_swap 5 4 1 2 3
+```
+
+* For check the number of movements:
+```bash
+./push_swap 5 4 1 2 3 | wc -l
+```
 
 ### References
 Books: 
