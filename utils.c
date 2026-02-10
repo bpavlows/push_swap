@@ -25,31 +25,11 @@ int	stack_sorted(t_stack *stack)
 	return (1);
 }
 
-t_stack	*find_highest(t_stack *stack)
-{
-	long	highest;
-	t_stack	*highest_node;
-
-	if (!stack)
-		return (NULL);
-	highest = LONG_MIN;
-	while (stack)
-	{
-		if (stack->value > highest)
-		{
-			highest = stack->value;
-			highest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (highest_node);
-}
-
 void	sort_three(t_stack **a)
 {
 	t_stack	*highest_node;
 
-	highest_node = find_highest(*a);
+	highest_node = find_max(*a);
 	if (*a == highest_node)
 		ra(a);
 	else if ((*a)->next == highest_node)

@@ -22,7 +22,7 @@ static void	swap(t_stack **head)
 	first = *head;
 	second = first->next;
 	first->next = second->next;
-	if (second->next == NULL)
+	if (second->next)
 		second->next->prev = first;
 	second->next = first;
 	second->prev = NULL;

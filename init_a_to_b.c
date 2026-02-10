@@ -25,6 +25,7 @@ void	current_index(t_stack *stack)
 	while (stack)
 	{
 		stack->index = i;
+		stack->cheapest = 0;
 		if (i <= median)
 			stack->above_median = 1;
 		else
@@ -71,8 +72,9 @@ void	cost_analysis_a(t_stack *a, t_stack *b)
 	len_b = stack_len(b);
 	while (a)
 	{
-		a->push_cost = a->index;
-		if (!(a->above_median))
+		if (a->above_median)
+			a->push_cost = a->index;
+		else
 			a->push_cost = len_a - (a->index);
 		if (a->target_node->above_median)
 			a->push_cost += a->target_node->index;

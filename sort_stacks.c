@@ -23,18 +23,32 @@ static void	min_on_top(t_stack **a)
 	t_stack	*min_node;
 
 	min_node = find_min(*a);
-	prep_for_push(a, min_node, 'a');
+	if (min_node->above_median)
+	{
+		while ((*a)->value != min_node->value)
+			ra(a);
+	}
+	else
+	{
+		while ((*a)->value != min_node->value)
+			rra(a);
+	}
 }
 
 void	sort_stacks(t_stack **a, t_stack **b)
 {
-	int		len_a;
+	int	len_a;
 
 	len_a = stack_len(*a);
-	while (stack_len(*a) > 3 && !stack_sorted(*a))
+	if (len_a-- > 3 && !stack_sorted(*a))
+		pb(b, a);
+	if (len_a-- > 3 && !stack_sorted(*a))
+		pb(b, a);
+	while (len_a > 3 && !stack_sorted(*a))
 	{
 		init_nodes_a(*a, *b);
 		move_a_to_b(a, b);
+		len_a--;
 	}
 	sort_three(a);
 	while (*b)

@@ -12,19 +12,18 @@
 
 #include "push_swap.h"
 
-void	init_nodes_b(t_stack *a, t_stack *b)
+static void	set_target_b(t_stack *a, t_stack *b)
 {
 	t_stack	*current_a;
 	t_stack *target_node;
 	long	best_match_index;
 
 	best_match_index = 0;
-	current_index(a);
-	current_index(b);
 	while (b)
 	{
 		best_match_index = LONG_MAX;
 		current_a = a;
+		target_node = NULL;
 		while (current_a)
 		{
 			if ((current_a->value > b->value) && current_a->value < best_match_index)
@@ -40,6 +39,13 @@ void	init_nodes_b(t_stack *a, t_stack *b)
 			b->target_node = target_node;
 		b = b->next;
 	}
+}
+
+void	init_nodes_b(t_stack *a, t_stack *b)
+{
+	current_index(a);
+	current_index(b);
+	set_target_b(a, b);
 }
 
 t_stack	*find_min(t_stack *stack)

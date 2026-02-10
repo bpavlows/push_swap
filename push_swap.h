@@ -29,9 +29,6 @@ typedef struct	s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
-//int		push_swap(char **arg); //ainda nao fiz
-//void	imprimir_lista(t_stack *a);
-
 long	ft_atol(const char *str);
 int		syntax_check(char *arg);
 int		check_duplicates(t_stack *a, int n);
@@ -41,19 +38,15 @@ void	init_stack_a(t_stack **a, char **arg);
 void	ft_error(t_stack **stack);
 void	process_split_args(t_stack **stack_a, char **arg);
 void	add_node_back(t_stack **stack, t_stack *new_node);
-//void	swap(t_stack **head);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
 void	ss(t_stack **a, t_stack **b);
-//void	rotate(t_stack **stack);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rr(t_stack **a, t_stack **b);
-//void	reverse_rotate(t_stack **stack);
 void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
-//void	push(t_stack **dest, t_stack **src);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
 void	sort_three(t_stack **a);
@@ -69,7 +62,6 @@ void	sort_stacks(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
-t_stack	*find_higest(t_stack *stack);
 t_stack	*get_new_node(int content);
 t_stack	*find_last_node(t_stack *head);
 

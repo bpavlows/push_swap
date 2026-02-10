@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-/*void	imprimir_lista(t_stack *a)
-{
-	t_stack	*temp;
-
-	temp = a;
-	while (temp != NULL)
-	{
-		ft_printf("%d\n", temp->value);
-		temp = temp->next;
-	}
-}*/
-
 void	free_stack(t_stack **stack)
 {
 	t_stack	*temp;
@@ -47,7 +35,6 @@ void	process_split_args(t_stack **stack_a, char **arg)
 	long	nbr;
 	int		i;
 	int		j;
-	//t_stack	*new_node;
 
 	nbr = 0;
 	i = 0;
@@ -66,7 +53,6 @@ void	process_split_args(t_stack **stack_a, char **arg)
 				ft_error(stack_a);
 			if (check_duplicates(*stack_a, (int)nbr)) // vai checar se o numero atual ja esta na stack
 				ft_error(stack_a);
-		//	new_node = get_new_node((int)nbr);
 			add_node_back(stack_a, get_new_node((int)nbr));
 			free(args_split[j]);
 			j++;
@@ -74,11 +60,7 @@ void	process_split_args(t_stack **stack_a, char **arg)
 		free(args_split);
 		i++;
 	}
-	// se estiver ok, adc na stack a
 }
-/*
-int	push_swap(char **arg)
-*/
 
 int	main(int ac, char **av)
 {
@@ -102,21 +84,5 @@ int	main(int ac, char **av)
 	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
-	/*while (av[i])
-	{
-		if (av[i][0] == '\0') //caso ./a.out ""
-			ft_error(stack_a);
-		args_split = ft_split(av[i], ' ');
-		if (!args_split || args_split[0] == NULL) //caso ./a.out " "
-		{
-			//criar funcao para liberar a memoria
-			ft_error(stack_a);
-		}
-		process_split_args(&stack_a, args_split);
-		free(args_split);
-		i++;
-	}
-	sort_three(&stack_a);
-	imprimir_lista(stack_a);*/
 	return (0);
 }
