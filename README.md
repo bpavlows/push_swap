@@ -85,7 +85,7 @@ Erros: The program handles errors such as:
 ```
 or:
 ```bash
-./push_swap 5 4 3 i 2 1
+./push_swap 5 4 3 "i" 2 1
 ```
 * Duplicate numbers.
 ```bash
@@ -102,7 +102,7 @@ or:
 
 * If you need check using the checker_linux, use:
 ```bash
-ARG=$(5, 3, 4, 1, 2); ./push_swap $ARG | checker_linux $ARG
+ARG=$"5 3 4 1 2"; ./push_swap $ARG | checker_linux $ARG
 ```
 
 * If you need to use the Valgrind:
