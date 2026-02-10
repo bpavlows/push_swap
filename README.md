@@ -3,6 +3,9 @@
 # PUSH_SWAP
 ## Project push_swap / Milestone 2 / 42 Porto
 
+[Screencast from 10-02-2026 09:19:01.webm](https://github.com/user-attachments/assets/62324b00-75e6-4a4f-bd78-95484ada05cf)
+[Screencast from 10-02-2026 09:20:26.webm](https://github.com/user-attachments/assets/76854ca4-f6a3-4b4c-90fd-1423c6704412)
+
 ### Description
 The `push_swap` project is a very simple and highly effective algorithm project: data must be sorted.
 You have at your disposal a set of integer values, 2 stacks, and a set of instructions to manipulate both stacks.
