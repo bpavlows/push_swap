@@ -61,3 +61,22 @@ int	syntax_check(char *str)
 	}
 	return (0);
 }
+
+int	only_spaces(char **av)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j] == ' ')
+			j++;
+		if (av[i][j] == '\0')
+			return (1);
+		else
+			i++;
+	}
+	return (0);
+}

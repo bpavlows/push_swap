@@ -34,6 +34,7 @@ int		syntax_check(char *arg);
 int		check_duplicates(t_stack *a, int n);
 int		stack_len(t_stack *stack);
 int		stack_sorted(t_stack *stack);
+int		only_spaces(char **av);
 void	init_stack_a(t_stack **a, char **arg);
 void	ft_error(t_stack **stack);
 void	process_split_args(t_stack **stack_a, char **arg);
