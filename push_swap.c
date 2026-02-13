@@ -93,7 +93,9 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	if (ac == 1 || (ac == 2 && av[1][0] == '\0'))
+	if (ac == 1)
+		return (1);
+	if (ac == 2 && av[1][0] == '\0')
 		ft_error(&stack_a);
 	if (only_spaces(av))
 		ft_error(&stack_a);
